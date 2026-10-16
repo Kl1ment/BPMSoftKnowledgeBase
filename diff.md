@@ -14,6 +14,11 @@
 			// класс для картинки
 			"imageClass": ["usr-standard-img-btn"],
 			"labelClass": ["", ""],
+			"textClass": [""],
+			"wrapClass": [""],
+			"hyperlinkClass": [""],
+			"menuClass": [""],
+			"wrapClassName": [""]
 		},
 		"wrapClass": ["right-container-wrapClass"],
 		"linkWrapClass": ["org-structure-unit-filter"],

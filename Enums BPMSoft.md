@@ -31,6 +31,16 @@
 | GRID_LAYOUT_EDIT   | 31       |                                                                         |
 | IFRAMECONTROL      | 32       |                                                                         |
 
+### BPMSoft.ContentType
+
+| LONG_TEXT       | 0   |
+| --------------- | --- |
+| SHORT_TEXT      | 1   |
+| DATE_TIME       | 2   |
+| ENUM            | 3   |
+| RICH_TEXT       | 4   |
+| LOOKUP          | 5   |
+| SEARCHABLE_TEXT | 6   |
 
 ### BPMSoft.DataValueType
 
@@ -72,6 +82,14 @@
 | LOCALIZABLE_PARAMETER_VALUES_LIST | 35       |
 | METADATA_TEXT                     | 36       |
 | STAGE_INDICATOR                   | 37       |
+### BPMSoft.ViewModelColumnType
+
+| ENTITY_COLUMN     | 0   |
+| ----------------- | --- |
+| CALCULATED_COLUMN | 1   |
+| VIRTUAL_COLUMN    | 2   |
+| RESOURCE_COLUMN   | 3   |
+
 ### BPMSoft.ComparisonType
 
 | Тип данных       | Значение |

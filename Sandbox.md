@@ -8,7 +8,7 @@ messages: {
 }
 ```
 
-BPMSoft.MessageDirectionType
+BPMSoft.MessageMode
 
 | BROADCAST | "broadcast" |
 | --------- | ----------- |
