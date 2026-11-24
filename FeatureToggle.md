@@ -14,10 +14,10 @@
 DECLARE 
 @featureCode varchar(max) = 'FeatureCode',
 @featureId uniqueidentifier,
--- Все пользователи портала.
-@user1 uniqueidentifier = 'A29A3BA5-4B0D-DE11-9A51-005056C00008',
 -- Все сотрудники.
-@user2 uniqueidentifier = '720B771C-E7A7-4F31-9CFB-52CD21C3739F';
+@user1 uniqueidentifier = 'A29A3BA5-4B0D-DE11-9A51-005056C00008';
+-- Все пользователи портала.
+@user2 uniqueidentifier = '720B771C-E7A7-4F31-9CFB-52CD21C3739F',
  
 SET @featureId = (SELECT TOP 1 Id FROM Feature WHERE Code = @featureCode);
 
@@ -35,6 +35,36 @@ INSERT INTO AdminUnitFeatureState
 VALUES
 (@user1, 1, @featureId),
 (@user2, 1, @featureId);
+```
+
+```SQL
+DO $$
+DECLARE
+	v_feature_code text := 'TmkMassImportOpportunityProduct';
+	v_feature_id uuid;
+	v_user_id uuid := 'A29A3BA5-4B0D-DE11-9A51-005056C00008';
+BEGIN
+	SELECT "Id"
+	INTO v_feature_id
+	FROM "Feature"
+	WHERE "Code" = v_feature_code
+	LIMIT 1;
+
+	IF v_feature_id IS NULL 
+	THEN 
+		INSERT INTO "Feature" 
+		("Name", "Code")
+		VALUES (v_feature_code, v_feature_code)
+		RETURNING "Id" INTO v_feature_id; 
+	END IF;
+	
+	DELETE FROM "AdminUnitFeatureState"
+	WHERE "FeatureId" = v_feature_id;
+	
+	INSERT INTO "AdminUnitFeatureState"
+	("SysAdminUnitId", "FeatureState", "FeatureId")
+	VALUES (v_user_id, 1, v_feature_id);
+END $$;
 ```
 
 Проверка состояния функциональности на front-end

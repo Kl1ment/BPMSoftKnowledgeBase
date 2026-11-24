@@ -136,3 +136,14 @@ var esq = new EntitySchemaQuery(_userConnection.EntitySchemaManager, nameof(UsrC
     RowCount = 1
 };
 ```
+
+## Создание фильтров JS
+### Between
+
+```JS
+BPMSoft.createColumnBetweenFilterWithParameters(
+	"Date",
+	startDate,
+	endDate
+)
+```
